@@ -125,3 +125,10 @@ if st.button('Delete That Line!'):
     df.drop(df[df['name'] == del_data].index,inplace=True)
     df.to_csv('out.csv', index=False)
 
+def convert_df(df):
+     # IMPORTANT: Cache the conversion to prevent computation on every rerun
+     return df.to_csv().encode('utf-8')
+dl = convert_df(df)
+st.download_button(label=' Download Current Result',
+                                data=dl ,
+                                file_name= 'label.csv')
