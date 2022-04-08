@@ -52,7 +52,9 @@ with form:
         'hair length',
         ('long', 'middle', 'short', 'None'))
     
-    hair_color = cols[3].text_input('hair color')
+    hair_color = cols[3].selectbox(
+        'hair color',
+        ('black', 'white','blonde','mixed'))
     
     hair_curl = cols[3].selectbox(
         'hair curl',
@@ -64,7 +66,8 @@ with form:
 
     hair_side = cols[2].slider('face side?', 0, 10, 1)
 
-    hair_style = cols[1].text_input('hair style')
+    hair_style = cols[1].selectbox('hair style',
+        ('afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','long_female','middle_female'))
     cols = st.columns((4))
     hair_loss = cols[0].selectbox(
         'hair loss',
