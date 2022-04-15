@@ -67,7 +67,7 @@ with st.sidebar:
     st.title("标记步骤")
     st.text("1.在 ‘your name’ 中选择好自己的名字")
     st.text("2.根据出现的图片进行标记，可以自行选择标记顺序")
-    st.text("3.所有左右均相对于图片")
+    st.text("3.所有左右均相对于人物")
     st.text("4.每一张图片可标记一次，如果重复标记会提示duplicate")
     st.text("5.如果需要修改，请在下方输入框中输入或选择目标图片，然后通过Delete that line按钮删除目标图片。")
     st.text("6.show csv按钮可显示目前所有的label结果")
