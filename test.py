@@ -102,7 +102,7 @@ with form:
     
     hair_color = cols[3].selectbox(
         'hair color',
-        ('black', 'white','blonde','grey','mixed'))
+        ('black', 'white','blonde','grey','mixed','purple','green','blue','red'))
 
     cols = st.columns((4))
     hair_curl = cols[0].selectbox(
