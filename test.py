@@ -7,7 +7,7 @@ import time
 def run():
     
 
-    accounts = {'steve':'stevey960324',
+    accounts = {'steve':'yangzk960324',
                 'qiqi':'NeuralImage',
                 'charlie':'NeuralImage',
                 'eric':'NeuralImage',
@@ -22,7 +22,7 @@ def run():
     passcode = st.text_input('密码', type="password")
     #labeler_name = st.text_input("your id")
     ln = st.session_state.name = labeler_name
-    st.write(ln)
+    #st.write(ln)
     colA, colB, colC = st.columns(3)
     image_list = []
     optiopn_list = []
@@ -58,9 +58,12 @@ def run():
         var2 = st.empty()
         tmp_img = image_list[index]
         var1.empty()
-        option = colB.selectbox(
-            'Images List',
-            tuple(optiopn_list),key='option_1')
+        colB.write('')
+        colB.write('')
+        colB.write(optiopn_list[index])
+        #option = colB.selectbox(
+        #    'Images List',
+        #    tuple(optiopn_list),key='option_1')
         st.markdown(
             """
             <style>
@@ -128,8 +131,10 @@ def run():
         form = st.form(key="annotation")
         with form:
             cols = st.columns((4))
+            cols[0].write('还未标记的图片')
             cols[0].write(pd.DataFrame(unlabeled_list))
             cols[1].image(folder+'/' + tmp_img, width = 512)
+            cols[3].write('已经标记的图片')
             cols[3].write(pd.DataFrame(labeled_list))
             var2 = st.empty()
             cols = st.columns((4))
