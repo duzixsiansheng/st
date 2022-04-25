@@ -116,9 +116,9 @@ def run():
         race_list = ['asian', 'EU/NA']
         skin_color_list = ['black', 'white','yellow', 'brown']
         hair_length_list = ['long', 'middle', 'short', 'None']
-        hair_color_list = ['black', 'white','blonde','grey','mixed','purple','green','blue','red']
+        hair_color_list = ['black', 'white','blonde','grey','mixed','purple','green','blue','red','None']
         hair_curl_list = ['None', 'wave', 'curly', 'coily']
-        hair_bang_list = ['None','left', 'right', 'air', 'full']
+        hair_bang_list = ['None','left', 'right', 'air', 'full','midsplit']
         #hair_side_list = []
         hair_style_list = ['afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss']
         hair_loss_list = ['None', 'can tell', 'all']
@@ -127,7 +127,7 @@ def run():
         face_shape_list = ['oval', 'diamond', 'rectangle', 'round', 'square']
         #face_hair_rank_asian_list = []
         ###########################################
-        
+        difficulty_level = []
         form = st.form(key="annotation")
         with form:
             cols = st.columns((4))
@@ -240,9 +240,11 @@ def run():
 
             cols = st.columns((1))
             if dup == 1:
-                face_hair_rank_asian = st.slider('脸和头发的匹配程度，根据个人审美评分 face hair rank?', 0, 10, (data.loc[data["name"] == cur, "face_hair_rank_asian"]).tolist()[0])
+                face_hair_rank_asian = cols[0].slider('脸和头发的匹配程度，根据个人审美评分 face hair rank?', 0, 10, (data.loc[data["name"] == cur, "face_hair_rank_asian"]).tolist()[0])
+                difficulty_level = cols[1].slider("无困难=0，发型难以判断=1，背景环境遮挡=2",0,2,0)
             elif dup == 0:    
                 face_hair_rank_asian = st.slider('脸和头发的匹配程度，根据个人审美评分 face hair rank?', 0, 10, 5)
+                difficulty_level = cols[1].slider("无困难=0，发型难以判断=1，背景环境遮挡=2",0,2,(data.loc[data["name"] == cur, "difficulty_level"]).tolist()[0])
             cols = st.columns((4))
             check = cols[0].form_submit_button(label="检查 check!")
             submitted = cols[1].form_submit_button(label="提交 submit!")
@@ -251,7 +253,7 @@ def run():
             addrow = {'name':tmp_img,'race':race, 'hair_length':hair_length,  
                     'background':background, 'skin_color':skin_color, 'hair_style':hair_style,'hair_color':hair_color,
                     'hair_side':hair_side,'hair_curl':hair_curl,'hair_bang':hair_bang,'hair_loss':hair_loss,'beard':beard,
-                'face_hair_rank_asian':face_hair_rank_asian,'face_shape':face_shape,'time':'0','labeler':labeler_name}
+                'face_hair_rank_asian':face_hair_rank_asian,'face_shape':face_shape,'time':'0','labeler':labeler_name,'difficulty_level':difficulty_level}
             tmp = pd.read_csv(file)
             if check:
                 st.write(addrow)
@@ -262,7 +264,7 @@ def run():
                 addrow = {'name':tmp_img,'race':race, 'hair_length':hair_length,  
                     'background':background, 'skin_color':skin_color, 'hair_style':hair_style,'hair_color':hair_color,
                     'hair_side':hair_side,'hair_curl':hair_curl,'hair_bang':hair_bang,'hair_loss':hair_loss,'beard':beard,
-                'face_hair_rank_asian':face_hair_rank_asian,'face_shape':face_shape,'time':time.localtime( time.time() ),'labeler':labeler_name}
+                'face_hair_rank_asian':face_hair_rank_asian,'face_shape':face_shape,'time':time.localtime( time.time() ),'labeler':labeler_name,'difficulty_level':difficulty_level}
                 if addrow['name'] in nameList:
                     
                     st.text('重复!')
