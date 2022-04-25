@@ -120,7 +120,7 @@ def run():
         hair_curl_list = ['None', 'wave', 'curly', 'coily']
         hair_bang_list = ['None','left', 'right', 'air', 'full','midsplit']
         #hair_side_list = []
-        hair_style_list = ['afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss']
+        hair_style_list = ['afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss','pose too bad']
         hair_loss_list = ['None', 'can tell', 'all']
         background_list = ['Good', 'Bad']
         #beard_list = []
@@ -180,13 +180,13 @@ def run():
                 
                 hair_bang = cols[1].selectbox(
                     '刘海状况 hair bang',
-                    ('None','left', 'right', 'air', 'full'),
+                    ('None','left', 'right', 'air', 'full','midsplit'),
                         index = hair_bang_list.index((data.loc[data["name"] == cur, "hair_bang"]).tolist()[0]))
 
                 hair_side = cols[2].slider('发分线 hair side?', 0, 10, (data.loc[data["name"] == cur, "hair_side"]).tolist()[0])
 
                 hair_style = cols[3].selectbox('发型 hair style',
-                    ('afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss'),
+                    ('afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss','pose too bad'),
                         index = hair_style_list.index((data.loc[data["name"] == cur, "hair_style"]).tolist()[0]))    
             
             elif dup == 0:
@@ -196,7 +196,7 @@ def run():
                 
                 hair_bang = cols[1].selectbox(
                     '刘海状况 hair bang',
-                    ('None','left', 'right', 'air', 'full'))
+                    ('None','left', 'right', 'air', 'full','midsplit'))
 
                 hair_side = cols[2].slider('发分线 hair side?', 0, 10, 5)
 
