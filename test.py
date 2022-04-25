@@ -201,7 +201,7 @@ def run():
                 hair_side = cols[2].slider('发分线 hair side?', 0, 10, 5)
 
                 hair_style = cols[3].selectbox('发型 hair style',
-                    ('afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss'))
+                    ('afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss','pose too bad'))
 
             cols = st.columns((4))
 
