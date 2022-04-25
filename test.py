@@ -8,10 +8,10 @@ def run():
     
 
     accounts = {'steve':'yangzk960324',
-                'qiqi':'NeuralImage',
-                'charlie':'NeuralImage',
-                'eric':'NeuralImage',
-                'pengfei':'NeuralImage'}
+                '王争争':'NeuralImage',
+                '孙文丽':'NeuralImage',
+                '房潇潇':'NeuralImage',
+                'test':'test'}
     #username = var_user.text_input('用户名')
     
     st.title('Label Tool')
@@ -31,16 +31,16 @@ def run():
     if ln == 'steve':
         folder = 'images_steve'
         file = 'out_steve.csv'
-    elif ln == 'qiqi':
+    elif ln == '王争争':
         folder = 'images_qiqi'
         file = 'out_qiqi.csv'
-    elif ln == 'eric':
+    elif ln == '孙文丽':
         folder = 'images_eric'
         file = 'out_eric.csv'
-    elif ln == 'charlie':
+    elif ln == '房潇潇':
         folder = 'images_charlie'
         file = 'out_charlie.csv'
-    elif ln == 'pengfei':
+    elif ln == 'test':
         folder = 'images_pengfei'
         file = 'out_pengfei.csv'
     if accounts.get(labeler_name) == passcode:
