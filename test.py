@@ -127,7 +127,7 @@ def run():
         face_shape_list = ['oval', 'diamond', 'rectangle', 'round', 'square']
         #face_hair_rank_asian_list = []
         ###########################################
-        ############################################
+        
         form = st.form(key="annotation")
         with form:
             cols = st.columns((4))
