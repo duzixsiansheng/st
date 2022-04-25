@@ -238,12 +238,12 @@ def run():
                     ('oval', 'diamond', 'rectangle', 'round', 'square'))
 
 
-            cols = st.columns((1))
+            cols = st.columns((2))
             if dup == 1:
                 face_hair_rank_asian = cols[0].slider('脸和头发的匹配程度，根据个人审美评分 face hair rank?', 0, 10, (data.loc[data["name"] == cur, "face_hair_rank_asian"]).tolist()[0])
                 difficulty_level = cols[1].slider("无困难=0，发型难以判断=1，背景环境遮挡=2",0,2,(data.loc[data["name"] == cur, "difficulty_level"]).tolist()[0])
             elif dup == 0:    
-                face_hair_rank_asian = st.slider('脸和头发的匹配程度，根据个人审美评分 face hair rank?', 0, 10, 5)
+                face_hair_rank_asian = cols[0].slider('脸和头发的匹配程度，根据个人审美评分 face hair rank?', 0, 10, 5)
                 difficulty_level = cols[1].slider("无困难=0，发型难以判断=1，背景环境遮挡=2",0,2,0)
             cols = st.columns((4))
             check = cols[0].form_submit_button(label="检查 check!")
