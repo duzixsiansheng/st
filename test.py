@@ -8,9 +8,9 @@ def run():
     
 
     accounts = {'steve':'yangzk960324',
-                '王争争':'NeuralImage',
-                '孙文丽':'NeuralImage',
-                '房潇潇':'NeuralImage',
+                '王争争':'wangzhengzheng',
+                '孙文丽':'sunwenli',
+                '房潇潇':'fangxiaoxiao',
                 'test':'test'}
     #username = var_user.text_input('用户名')
     
