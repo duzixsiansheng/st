@@ -17,7 +17,7 @@ def run():
     st.title('Label Tool')
     labeler_name = st.selectbox(
         'your name',
-        ('steve', 'qiqi','charlie','eric','pengfei')
+        ('steve', '王争争','孙文丽','房潇潇','test')
     )
     passcode = st.text_input('密码', type="password")
     #labeler_name = st.text_input("your id")
