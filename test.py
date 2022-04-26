@@ -113,19 +113,19 @@ def run():
         else:    
             dup = 0
         #if dup == 1:
-        race_list = ['asian', 'EU/NA']
-        skin_color_list = ['black', 'white','yellow', 'brown']
-        hair_length_list = ['long', 'middle', 'short', 'None']
-        hair_color_list = ['black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None']
-        hair_curl_list = ['None', 'wave', 'curly', 'coily']
-        hair_bang_list = ['None','left', 'right', 'air', 'full','midsplit']
+        race_list = ['请选择','asian', 'EU/NA']
+        skin_color_list = ['请选择','black', 'white','yellow', 'brown']
+        hair_length_list = ['请选择','long', 'middle', 'short', 'None']
+        hair_color_list = ['请选择','black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None']
+        hair_curl_list = ['请选择','None', 'wave', 'curly', 'coily']
+        hair_bang_list = ['请选择','None','left', 'right', 'air', 'full','midsplit']
         #hair_side_list = []
-        hair_style_list = ['afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss','pose too bad']
-        hair_loss_list = ['None', 'can tell', 'all']
-        background_list = ['Good', 'Bad']
+        hair_style_list = ['请选择','afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss','pose too bad']
+        hair_loss_list = ['请选择','None', 'can tell', 'all']
+        background_list = ['请选择','Good', 'Bad']
         #beard_list = []
-        face_shape_list = ['oval', 'diamond', 'rectangle', 'round', 'square']
-        difficulty_level = ['None', 'hairstyle','badbg','badpose','haircoverface']
+        face_shape_list = ['请选择','oval', 'diamond', 'rectangle', 'round', 'square']
+        difficulty_level = ['请选择','None', 'hairstyle','badbg','badpose','something_cover_face']
         #face_hair_rank_asian_list = []
         ###########################################
        
@@ -143,100 +143,100 @@ def run():
             if dup == 1:
                 race = cols[0].selectbox(
                         '人种 race',
-                        ('asian', 'EU/NA'),
+                        ('请选择','asian', 'EU/NA'),
                         index = race_list.index((data.loc[data["name"] == cur, "race"]).tolist()[0]))
                 skin_color = cols[1].selectbox(
                     '肤色 skin color',
-                    ('black', 'white','yellow', 'brown'),
+                    ('请选择','black', 'white','yellow', 'brown'),
                     index = skin_color_list.index((data.loc[data["name"] == cur, "skin_color"]).tolist()[0]))
                 hair_length = cols[2].selectbox(
                     '头发长度 hair length',
-                    ('long', 'middle', 'short', 'None'),
+                    ('请选择','long', 'middle', 'short', 'None'),
                     index = hair_length_list.index((data.loc[data["name"] == cur, "hair_length"]).tolist()[0]))
                 hair_color = cols[3].selectbox(
                     '头发颜色 hair color',
-                    ('black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None'),
+                    ('请选择','black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None'),
                     index = hair_color_list.index((data.loc[data["name"] == cur, "hair_color"]).tolist()[0]))
 
             elif dup == 0:
                 race = cols[0].selectbox(
                         '人种 race',
-                        ('asian', 'EU/NA'))
+                        ('请选择','asian', 'EU/NA'))
                 skin_color = cols[1].selectbox(
                     '肤色 skin color',
-                    ('black', 'white','yellow', 'brown'))
+                    ('请选择','black', 'white','yellow', 'brown'))
                 hair_length = cols[2].selectbox(
                     '头发长度 hair length',
-                    ('long', 'middle', 'short', 'None'),index = 1)
+                    ('请选择','long', 'middle', 'short', 'None'),index = 1)
                 hair_color = cols[3].selectbox(
                     '头发颜色 hair color',
-                    ('black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None'))
+                    ('请选择','black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None'))
 
             cols = st.columns((4))
             if dup == 1:
                 hair_curl = cols[0].selectbox(
                     '头发卷曲程度 hair curl',
-                    ('None', 'wave', 'curly', 'coily'),
+                    ('请选择','None', 'wave', 'curly', 'coily'),
                         index = hair_curl_list.index((data.loc[data["name"] == cur, "hair_curl"]).tolist()[0]))
                 
                 hair_bang = cols[1].selectbox(
                     '刘海状况 hair bang',
-                    ('None','left', 'right', 'air', 'full','midsplit'),
+                    ('请选择','None','left', 'right', 'air', 'full','midsplit'),
                         index = hair_bang_list.index((data.loc[data["name"] == cur, "hair_bang"]).tolist()[0]))
 
                 hair_side = cols[2].slider('发分线 hair side?', 0, 10, (data.loc[data["name"] == cur, "hair_side"]).tolist()[0])
 
                 hair_style = cols[3].selectbox('发型 hair style',
-                    ('afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss','pose too bad'),
+                    ('请选择','afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss','pose too bad'),
                         index = hair_style_list.index((data.loc[data["name"] == cur, "hair_style"]).tolist()[0]))    
             
             elif dup == 0:
                 hair_curl = cols[0].selectbox(
                     '头发卷曲程度 hair curl',
-                    ('None', 'wave', 'curly', 'coily'))
+                    ('请选择','None', 'wave', 'curly', 'coily'))
                 
                 hair_bang = cols[1].selectbox(
                     '刘海状况 hair bang',
-                    ('None','left', 'right', 'air', 'full','midsplit'))
+                    ('请选择','None','left', 'right', 'air', 'full','midsplit'))
 
                 hair_side = cols[2].slider('发分线 hair side?', 0, 10, 5)
 
                 hair_style = cols[3].selectbox('发型 hair style',
-                    ('afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss','pose too bad'))
+                    ('请选择','afro', 'bob','bowl','buzz','caesar','crew','undercut','pixie','ponytail','bun','straight','wavy','hat','severe_hair_loss','pose too bad'))
 
             cols = st.columns((4))
 
             if dup == 1:
                 hair_loss = cols[0].selectbox(
                     '秃头程度 hair loss',
-                    ('None', 'can tell', 'all'),
+                    ('请选择','None', 'can tell', 'all'),
                         index = hair_loss_list.index((data.loc[data["name"] == cur, "hair_loss"]).tolist()[0]))    
 
                 background = cols[1].selectbox(
                     '背景情况 backgrond',
-                    ('Good', 'Bad'),
+                    ('请选择','Good', 'Bad'),
                         index = background_list.index((data.loc[data["name"] == cur, "background"]).tolist()[0]))    
                 
                 beard = cols[3].checkbox('Have beard?', value = (data.loc[data["name"] == cur, "beard"]).tolist()[0])
 
                 face_shape = cols[2].selectbox(
                     '脸型 face shape',
-                    ('oval', 'diamond', 'rectangle', 'round', 'square'),
+                    ('请选择','oval', 'diamond', 'rectangle', 'round', 'square'),
                         index = face_shape_list.index((data.loc[data["name"] == cur, "face_shape"]).tolist()[0]))           
             elif dup == 0:    
                 hair_loss = cols[0].selectbox(
                     '秃头程度 hair loss',
-                    ('None', 'can tell', 'all'))
+                    ('请选择','None', 'can tell', 'all'))
 
                 background = cols[1].selectbox(
                     '背景情况 background',
-                    ('Good', 'Bad'))
+                    ('请选择','Good', 'Bad'))
                 
                 beard = cols[3].checkbox('Have beard?')
 
                 face_shape = cols[2].selectbox(
                     '脸型 face shape',
-                    ('oval', 'diamond', 'rectangle', 'round', 'square'))
+                    ('请选择','oval', 'diamond', 'rectangle', 'round', 'square'))
 
 
             cols = st.columns((2))
@@ -244,13 +244,13 @@ def run():
                 face_hair_rank_asian = cols[0].slider('脸和头发的匹配程度，根据个人审美评分 face hair rank?', 0, 10, (data.loc[data["name"] == cur, "face_hair_rank_asian"]).tolist()[0])
                 difficulty_level = cols[1].selectbox(
                     '困难度，没有：None,发型因遮挡不好判断：hairstyle，背景原因：badbg，角度过大：badpose',
-                    ('None', 'hairstyle','badbg','badpose','haircoverface'),
+                    ('请选择','None', 'hairstyle','badbg','badpose','haircoverface'),
                     index = difficulty_level.index((data.loc[data["name"] == cur, "difficulty_level"]).tolist()[0])) 
             elif dup == 0:    
                 face_hair_rank_asian = cols[0].slider('脸和头发的匹配程度，根据个人审美评分 face hair rank?', 0, 10, 5)
                 difficulty_level = cols[1].selectbox(
                     '困难度，没有：None,发型因遮挡不好判断：hairstyle，背景原因：badbg，角度过大：badpose',
-                    ('None', 'hairstyle','badbg','badpose','haircoverface'))
+                    ('请选择','None', 'hairstyle','badbg','badpose','haircoverface'))
             cols = st.columns((4))
             check = cols[0].form_submit_button(label="检查 check!")
             submitted = cols[1].form_submit_button(label="提交 submit!")
