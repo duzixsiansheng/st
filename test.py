@@ -167,7 +167,7 @@ def run():
                     ('请选择','black', 'white','yellow', 'brown'))
                 hair_length = cols[2].selectbox(
                     '头发长度 hair length',
-                    ('请选择','long', 'middle', 'short', 'None'),index = 1)
+                    ('请选择','long', 'middle', 'short', 'None'))
                 hair_color = cols[3].selectbox(
                     '头发颜色 hair color',
                     ('请选择','black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None'))
