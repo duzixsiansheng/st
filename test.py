@@ -116,7 +116,7 @@ def run():
         race_list = ['asian', 'EU/NA']
         skin_color_list = ['black', 'white','yellow', 'brown']
         hair_length_list = ['long', 'middle', 'short', 'None']
-        hair_color_list = ['black', 'white','blonde','grey','mixed','purple','green','blue','red','None']
+        hair_color_list = ['black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None']
         hair_curl_list = ['None', 'wave', 'curly', 'coily']
         hair_bang_list = ['None','left', 'right', 'air', 'full','midsplit']
         #hair_side_list = []
@@ -155,7 +155,7 @@ def run():
                     index = hair_length_list.index((data.loc[data["name"] == cur, "hair_length"]).tolist()[0]))
                 hair_color = cols[3].selectbox(
                     '头发颜色 hair color',
-                    ('black', 'white','blonde','grey','mixed','purple','green','blue','red'),
+                    ('black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None'),
                     index = hair_color_list.index((data.loc[data["name"] == cur, "hair_color"]).tolist()[0]))
 
             elif dup == 0:
@@ -170,7 +170,7 @@ def run():
                     ('long', 'middle', 'short', 'None'),index = 1)
                 hair_color = cols[3].selectbox(
                     '头发颜色 hair color',
-                    ('black', 'white','blonde','grey','mixed','purple','green','blue','red'))
+                    ('black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None'))
 
             cols = st.columns((4))
             if dup == 1:
