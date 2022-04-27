@@ -246,13 +246,13 @@ def run():
                 face_hair_rank_asian = cols[0].slider('脸和头发的匹配程度，根据个人审美评分 face hair rank?', 0, 10, (data.loc[data["name"] == cur, "face_hair_rank_asian"]).tolist()[0])
                 difficulty_level = cols[1].selectbox(
                     '困难度，没有：None,发型因遮挡不好判断：hairstyle，背景原因：badbg，角度过大：badpose',
-                    ('None', 'hairstyle','badbg','badpose','haircoverface'),
+                    ('None', 'hairstyle','badbg','badpose','something_cover_face'),
                     index = difficulty_level.index((data.loc[data["name"] == cur, "difficulty_level"]).tolist()[0])) 
             elif dup == 0:    
                 face_hair_rank_asian = cols[0].slider('脸和头发的匹配程度，根据个人审美评分 face hair rank?', 0, 10, 5)
                 difficulty_level = cols[1].selectbox(
                     '困难度，没有：None,发型因遮挡不好判断：hairstyle，背景原因：badbg，角度过大：badpose',
-                    ('None', 'hairstyle','badbg','badpose','haircoverface'))
+                    ('None', 'hairstyle','badbg','badpose','something_cover_face'))
             cols = st.columns((4))
             check = cols[0].form_submit_button(label="检查 check!")
             submitted = cols[1].form_submit_button(label="提交 submit!")
