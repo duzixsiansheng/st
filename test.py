@@ -52,6 +52,7 @@ def run():
         index= colA.number_input('Index',min_value=0,max_value=len(image_list)-1,step=1)
         st.session_state.option_1 = optiopn_list[index]
         cur = st.session_state.option_2 = image_list[index]
+        dup = 0
         start_time = time.time()
         var3 = st.empty()
         var1 = st.empty()
@@ -110,7 +111,9 @@ def run():
             new_title = '<p style="font-family:sans-serif; color:Green; font-size: 42px;">您已经标记过这张图片了</p>'
             st.markdown(new_title, unsafe_allow_html=True)
             dup = 1
-        else:    
+        else:
+            new_title = '<p style="font-family:sans-serif; color:Red; font-size: 42px;">您还未标记过这张图片</p>'
+            st.markdown(new_title, unsafe_allow_html=True)    
             dup = 0
         #if dup == 1:
         race_list = ['请选择','asian', 'EU/NA']
@@ -129,7 +132,7 @@ def run():
         #face_hair_rank_asian_list = []
         ###########################################
        
-        form = st.form(key="annotation")
+        form = st.form(key="annotation", clear_on_submit = True)
         with form:
             cols = st.columns((4))
             cols[0].write('还未标记的图片')
@@ -138,37 +141,38 @@ def run():
             cols[3].write('已经标记的图片')
             cols[3].write(pd.DataFrame(labeled_list))
             var2 = st.empty()
-            cols = st.columns((4))
+            colsA = st.columns((4))
             #cols = st.columns((4))
             if dup == 1:
-                race = cols[0].selectbox(
+                race = colsA[0].selectbox(
                         '人种 race',
                         ('请选择','asian', 'EU/NA'),
                         index = race_list.index((data.loc[data["name"] == cur, "race"]).tolist()[0]))
-                skin_color = cols[1].selectbox(
+                skin_color = colsA[1].selectbox(
                     '肤色 skin color',
                     ('请选择','black', 'white','yellow', 'brown'),
                     index = skin_color_list.index((data.loc[data["name"] == cur, "skin_color"]).tolist()[0]))
-                hair_length = cols[2].selectbox(
+                hair_length = colsA[2].selectbox(
                     '头发长度 hair length',
                     ('请选择','long', 'middle', 'short', 'None'),
                     index = hair_length_list.index((data.loc[data["name"] == cur, "hair_length"]).tolist()[0]))
-                hair_color = cols[3].selectbox(
+                hair_color = colsA[3].selectbox(
                     '头发颜色 hair color',
                     ('请选择','black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None'),
                     index = hair_color_list.index((data.loc[data["name"] == cur, "hair_color"]).tolist()[0]))
 
             elif dup == 0:
-                race = cols[0].selectbox(
+                race = colsA[0].selectbox(
                         '人种 race',
-                        ('请选择','asian', 'EU/NA'))
-                skin_color = cols[1].selectbox(
+                        ('请选择','asian', 'EU/NA'),
+                        index = 0)
+                skin_color = colsA[1].selectbox(
                     '肤色 skin color',
                     ('请选择','black', 'white','yellow', 'brown'))
-                hair_length = cols[2].selectbox(
+                hair_length = colsA[2].selectbox(
                     '头发长度 hair length',
                     ('请选择','long', 'middle', 'short', 'None'))
-                hair_color = cols[3].selectbox(
+                hair_color = colsA[3].selectbox(
                     '头发颜色 hair color',
                     ('请选择','black', 'white','blonde','grey','mixed','purple','green','blue','red','brown','None'))
 
