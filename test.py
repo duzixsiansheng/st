@@ -111,9 +111,7 @@ def run():
             new_title = '<p style="font-family:sans-serif; color:Green; font-size: 42px;">您已经标记过这张图片了</p>'
             st.markdown(new_title, unsafe_allow_html=True)
             dup = 1
-        else:
-            new_title = '<p style="font-family:sans-serif; color:Red; font-size: 42px;">您还未标记过这张图片</p>'
-            st.markdown(new_title, unsafe_allow_html=True)    
+        else:   
             dup = 0
         #if dup == 1:
         race_list = ['请选择','asian', 'EU/NA']
